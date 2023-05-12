@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/ui/helpers/loader.dart';
 import '../../core/ui/helpers/messages.dart';
-import '../../core/ui/helpers/size_extensions.dart';
-import '../../core/ui/styles/colors_app.dart';
-import '../../core/ui/styles/text_styles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,16 +14,24 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: false,
         title: const Text('Home Page'),
       ),
-      body: Container(
-        color: context.colors.primary,
-        height: context.percentHeight(1),
-        width: context.percentWidth(.5),
-        child: Text(
-          context.screenWidth.toString(),
-          style: context.textStyles.textTitle,
-        ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20),
+            child: TextFormField(
+              decoration: const InputDecoration(
+                label: Text('Login'),
+              ),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Botão'),
+          ),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
